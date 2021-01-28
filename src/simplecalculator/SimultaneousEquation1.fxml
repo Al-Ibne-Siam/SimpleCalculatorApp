@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="235.0" prefWidth="491.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="simplecalculator.SimultaneousEquation1Controller">
+   <children>
+      <VBox layoutX="90.0" layoutY="90.0" prefHeight="74.0" prefWidth="312.0">
+         <children>
+            <HBox prefHeight="39.0" prefWidth="312.0">
+               <children>
+                  <Label prefHeight="30.0" prefWidth="63.0" text="Equation 1:" />
+                  <TextField fx:id="SE1x1" prefHeight="25.0" prefWidth="63.0">
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label prefHeight="28.0" prefWidth="21.0" text="X+" />
+                  <TextField fx:id="SE1y1" prefHeight="25.0" prefWidth="63.0" />
+                  <Label prefHeight="28.0" prefWidth="21.0" text="Y=">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="SE1Constant1" prefHeight="25.0" prefWidth="63.0" />
+               </children>
+            </HBox>
+            <HBox prefHeight="28.0" prefWidth="312.0">
+               <children>
+                  <Label prefHeight="30.0" prefWidth="63.0" text="Equation 2:" />
+                  <TextField fx:id="SE1x2" prefHeight="25.0" prefWidth="63.0">
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label prefHeight="28.0" prefWidth="21.0" text="X+" />
+                  <TextField fx:id="SE1y2" prefHeight="25.0" prefWidth="63.0" />
+                  <Label prefHeight="28.0" prefWidth="21.0" text="Y=">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="SE1Constant2" prefHeight="25.0" prefWidth="63.0" />
+               </children>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+      <TextField fx:id="SE1Display" editable="false" layoutX="90.0" layoutY="40.0" prefHeight="40.0" prefWidth="312.0" />
+      <Button fx:id="CalculateSE1" layoutX="193.0" layoutY="182.0" mnemonicParsing="false" onAction="#CalculateSE1" prefHeight="25.0" prefWidth="106.0" text="Calculate" />
+   </children>
+</AnchorPane>

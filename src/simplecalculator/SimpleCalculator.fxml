@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="894.0" prefWidth="924.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="simplecalculator.SimpleCalculatorController">
+   <children>
+      <VBox prefHeight="894.0" prefWidth="549.0">
+         <children>
+            <TextArea fx:id="SecondaryDisplay" editable="false" prefHeight="106.0" prefWidth="489.0">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <font>
+                  <Font name="Arial" size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="30.0" right="30.0" top="40.0" />
+               </VBox.margin>
+            </TextArea>
+            <TextArea fx:id="Display" editable="false" prefHeight="161.0" prefWidth="489.0">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="30.0" right="30.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <font>
+                  <Font name="Arial" size="20.0" />
+               </font>
+            </TextArea>
+            <HBox prefHeight="53.0" prefWidth="494.0">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="35.0" right="20.0" />
+               </VBox.margin>
+               <children>
+                  <Label prefHeight="27.0" prefWidth="400.0" text="AIS CALCULATOR">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="ViewAsFraction" mnemonicParsing="false" onAction="#ViewAsFraction" prefHeight="30.0" prefWidth="176.0" text="View as Fraction">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <Label prefHeight="10.0" prefWidth="76.0" text="Equations">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="30.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="57.0" prefWidth="489.0">
+               <VBox.margin>
+                  <Insets left="30.0" right="30.0" />
+               </VBox.margin>
+               <children>
+                  <HBox prefHeight="27.0" prefWidth="489.0">
+                     <children>
+                        <Button fx:id="SE1" mnemonicParsing="false" onAction="#HandleSE1" prefHeight="35.0" prefWidth="157.0" text="Ax+By=C">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="SE2" mnemonicParsing="false" onAction="#HandleSE2" prefHeight="35.0" prefWidth="157.0" text="Ax+By+Cz=D">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="Quadratic" mnemonicParsing="false" onAction="#HandleQuadratic" prefHeight="35.0" prefWidth="157.0" text="Ax^2+Bx+C=0" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <Label prefHeight="28.0" prefWidth="74.0" text="Complex">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="30.0" top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="56.0" prefWidth="519.0">
+               <children>
+                  <Button fx:id="C_Addition" mnemonicParsing="false" onAction="#HandleC_Addition" prefHeight="35.0" prefWidth="125.0" text="Addition">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="C_subtraction" mnemonicParsing="false" onAction="#HandleC_subtaction" prefHeight="35.0" prefWidth="125.0" text="Subtraction">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="C_Multiplication" mnemonicParsing="false" onAction="#HandleC_Multiplication" prefHeight="35.0" prefWidth="125.0" text="Multilpication" />
+                  <Button fx:id="C_division" mnemonicParsing="false" onAction="#HandleC_division" prefHeight="35.0" prefWidth="115.0" text="Division">
+                     <HBox.margin>
+                        <Insets left="10.0" right="30.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="30.0" />
+               </VBox.margin>
+            </HBox>
+            <Label prefHeight="36.0" prefWidth="143.0" text="Conversions">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="30.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="64.0" prefWidth="549.0">
+               <children>
+                  <Button fx:id="WeightConv" mnemonicParsing="false" onAction="#HandleWeightConv" prefHeight="35.0" prefWidth="157.0" text="KG&lt;&gt;Lbs">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="DistanceConv" mnemonicParsing="false" onAction="#HandleDistanceConv" prefHeight="35.0" prefWidth="159.0" text="M&lt;&gt;Miles">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="CurrencyConv" mnemonicParsing="false" onAction="#HandleCurrencyConv" prefHeight="35.0" prefWidth="159.0" text="\$&lt;&gt;Taka" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="30.0" right="30.0" />
+               </padding>
+            </HBox>
+            <VBox>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="30.0" right="40.0" top="20.0" />
+               </VBox.margin>
+            </VBox>
+            <GridPane prefHeight="335.0" prefWidth="489.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="104.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="104.0" minWidth="10.0" prefWidth="99.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <VBox.margin>
+                  <Insets bottom="30.0" left="30.0" right="30.0" />
+               </VBox.margin>
+               <children>
+                  <Button fx:id="point" mnemonicParsing="false" onAction="#HandlePoint" prefHeight="76.0" prefWidth="100.0" text="." GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="Divide" mnemonicParsing="false" onAction="#HandleDivide" prefHeight="76.0" prefWidth="100.0" text="/" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="Multiply" mnemonicParsing="false" onAction="#HandleMultiply" prefHeight="76.0" prefWidth="100.0" text="x" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="n3" mnemonicParsing="false" onAction="#Handle3" prefHeight="76.0" prefWidth="100.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="n2" mnemonicParsing="false" onAction="#Handle2" prefHeight="76.0" prefWidth="100.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="n1" mnemonicParsing="false" onAction="#Handle1" prefHeight="76.0" prefWidth="100.0" text="1" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="Subtract" mnemonicParsing="false" onAction="#HandleSubtract" prefHeight="46.0" prefWidth="94.0" text="-" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="Add" mnemonicParsing="false" onAction="#HandleAdd" prefHeight="76.0" prefWidth="100.0" text="+" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="n9" mnemonicParsing="false" onAction="#Handle9" prefHeight="76.0" prefWidth="100.0" text="9" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="n5" mnemonicParsing="false" onAction="#Handle5" prefHeight="76.0" prefWidth="100.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="n4" mnemonicParsing="false" onAction="#Handle4" prefHeight="76.0" prefWidth="100.0" text="4" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="n6" mnemonicParsing="false" onAction="#Handle6" prefHeight="76.0" prefWidth="100.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="n8" mnemonicParsing="false" onAction="#Handle8" prefHeight="76.0" prefWidth="100.0" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="n7" mnemonicParsing="false" onAction="#Handle7" prefHeight="76.0" prefWidth="100.0" text="7" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="Root" mnemonicParsing="false" onAction="#HandleRoot" prefHeight="43.0" prefWidth="91.0" text="√" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="n0" mnemonicParsing="false" onAction="#Handle0" prefHeight="76.0" prefWidth="100.0" text="0" GridPane.rowIndex="5">
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="equal" mnemonicParsing="false" onAction="#HandleEqual" prefHeight="42.0" prefWidth="187.0" text="=" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="5">
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="MemoryClear" mnemonicParsing="false" onAction="#HandleMemoryClear" prefHeight="42.0" prefWidth="93.0" text="MC" GridPane.columnIndex="2">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="MemorySave" mnemonicParsing="false" onAction="#HandleMemorySave" prefHeight="42.0" prefWidth="89.0" text="MS" GridPane.columnIndex="3">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="MemoryRecall" mnemonicParsing="false" onAction="#HandleMemoryRecall" prefHeight="42.0" prefWidth="91.0" text="MR" GridPane.columnIndex="4">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets right="10.0" />
+                     </padding>
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="ClearEntry" mnemonicParsing="false" onAction="#HandleClearEntry" prefHeight="44.0" prefWidth="96.0" text="CE" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets right="10.0" />
+                     </padding>
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="Clear" mnemonicParsing="false" onAction="#HandleClear" prefHeight="52.0" prefWidth="92.0" text="C" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="Percentage" mnemonicParsing="false" onAction="#HandlePercentage" prefHeight="76.0" prefWidth="100.0" text="\%" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="Reciprocal" mnemonicParsing="false" onAction="#HandleReciprocal" prefHeight="46.0" prefWidth="91.0" text="1/x" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="Backspace" mnemonicParsing="false" onAction="#HandleBackSpace" prefHeight="42.0" prefWidth="90.0" text="←" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </padding>
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="PlusMinus" mnemonicParsing="false" onAction="#HandlePlusMinus" prefHeight="76.0" prefWidth="100.0" text="+/-" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="Squared" mnemonicParsing="false" onAction="#HandleSquared" prefHeight="76.0" prefWidth="100.0" text="x^2" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="MemoryPlus" mnemonicParsing="false" onAction="#HandleMemoryPlus" prefHeight="42.0" prefWidth="93.0" text="M+">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="MemoryMinus" mnemonicParsing="false" onAction="#HandleMemoryMinus" prefHeight="42.0" prefWidth="93.0" text="M-" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </GridPane.margin>
+                  </Button>
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+      <VBox layoutX="549.0" layoutY="44.0" prefHeight="814.0" prefWidth="348.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="19.0" prefWidth="343.0" text="Calculation History">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="5.0" top="15.0" />
+               </VBox.margin></Label>
+            <Label alignment="TOP_LEFT" prefHeight="17.0" prefWidth="338.0" text="User Input = Output">
+               <VBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label prefHeight="18.0" prefWidth="344.0" text="Date : YYYY-MM-DD    Time(24hr format):  HH-MM-SS">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" />
+               </VBox.margin>
+            </Label>
+            <ListView fx:id="HistoryListView" prefHeight="652.0" prefWidth="348.0" />
+            <HBox prefHeight="65.0" prefWidth="348.0">
+               <children>
+                  <Button fx:id="LoadHistory" mnemonicParsing="false" onAction="#HandleLoadHistory" prefHeight="35.0" prefWidth="120.0" text="Load">
+                     <HBox.margin>
+                        <Insets left="10.0" top="15.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="DeleteHistory" mnemonicParsing="false" onAction="#HandleDeleteHistory" prefHeight="35.0" prefWidth="120.0" text="Delete">
+                     <HBox.margin>
+                        <Insets left="10.0" top="15.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="ClearHistory" mnemonicParsing="false" onAction="#HandleClearHistory" prefHeight="35.0" prefWidth="126.0" text="Delete All">
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" top="15.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" disable="true" fill="#1f93ff00" height="814.0" layoutX="548.0" layoutY="48.0" stroke="#b1acac" strokeType="INSIDE" width="350.0" />
+      <Line disable="true" endX="248.0" fill="WHITE" layoutX="649.0" layoutY="97.0" startX="-100.0" stroke="#b1acac" />
+   </children>
+</AnchorPane>
